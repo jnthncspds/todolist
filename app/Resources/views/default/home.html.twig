@@ -1,0 +1,97 @@
+{% extends 'dashboard/dashboard.html.twig' %}
+{% block body %}
+<div class="container" style="margin-top:50px">
+
+
+<table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Haciendo</th>
+      <th scope="col">Por hacer</th>
+      <th scope="col">Hecho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      {% for t in todo %}
+      {% if t.estado =="Haciendo" %}
+      <div>
+      <div>
+        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+          <div class="card-body d-flex flex-column align-items-start">
+            <h3 class="mb-0">
+              <a class="text-dark" href="{{t.enlace}}" target="_blank">{{t.titulo}}</a>
+            </h3>
+            <strong class="mb-1 text-muted"> Prioridad: {{t.prioridad}}</strong>
+            <div class="mb-1 text-muted">Fecha de entrega: {{t.fechaEntrega|date('d/m/y')}}</div>
+            <a class="btn btn-sm btn-outline-secondary" href="{{path('editar', {'id':t.id})}}">Editar</a>
+
+          </div>
+        </div>
+          <a class="btn btn-lg btn-success" href="#" role="button">Por hacer&raquo;</a>
+          <a class="btn btn-lg btn-danger" href="#" role="button">Hecho&raquo;</a>
+        </div>
+
+      {% endif %}
+      {% endfor %}
+
+    </td>
+
+      <td>
+{% for t in todo %}
+
+      {% if t.estado =="Por hacer" %}
+              <div>
+              <div>
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                  <div class="card-body d-flex flex-column align-items-start">
+                    <h3 class="mb-0">
+                      <a class="text-dark" href="{{t.enlace}}" target="_blank">{{t.titulo}}</a>
+                    </h3>
+                    <strong class="mb-1 text-muted"> Prioridad: {{t.prioridad}}</strong>
+                    <div class="mb-1 text-muted">Fecha de entrega: {{t.fechaEntrega|date('d/m/y')}}</div>
+                    <a class="btn btn-sm btn-outline-secondary" href="{{path('editar', {'id':t.id})}}">Editar</a>
+
+                  </div>
+                </div>
+                <a class="btn btn-lg btn-primary" href="#" role="button">Haciendo&raquo;</a>
+                <a class="btn btn-lg btn-danger" href="#" role="button">Hecho&raquo;</a>
+              </div>
+            {% endif %}
+
+        {% endfor %}
+          </td>
+
+      <td>
+{% for t in todo %}
+
+      {% if t.estado =="Hecho" %}
+      <div>
+      <div>
+        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+          <div class="card-body d-flex flex-column align-items-start">
+            <h3 class="mb-0">
+              <a class="text-dark" href="{{t.enlace}}" target="_blank">{{t.titulo}}</a>
+            </h3>
+            <strong class="mb-1 text-muted"> Prioridad: {{t.prioridad}}</strong>
+            <div class="mb-1 text-muted">Fecha de entrega: {{t.fechaEntrega|date('d/m/y')}}</div>
+            <a class="btn btn-sm btn-outline-secondary" href="{{path('editar', {'id':t.id})}}">Editar</a>
+
+          </div>
+        </div>
+                <a class="btn btn-lg btn-success" href="#" role="button">Por hacer&raquo;</a>
+                <a class="btn btn-lg btn-primary" href="#" role="button">Haciendo&raquo;</a>
+              </div>
+            {% endif %}
+
+        {% endfor %}
+          </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

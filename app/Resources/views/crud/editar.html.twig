@@ -1,0 +1,27 @@
+{% extends 'dashboard/dashboard.html.twig' %}
+
+{% block body %}
+<body >
+
+<div class="container" style="margin-top:50px">
+
+
+<h1 style="margin-bottom:25px">Editar Actividad</h1>
+
+
+{{ form_start(form) }}
+{{ form_row(form.titulo, {'label': 'Título:'})}}
+{{form_row(form.enlace, {'label': 'Enlace:'})}}
+<table>
+
+<thead>
+  <th scope="col">{{form_row(form.prioridad, {'label':'Prioridad:'})}}</th>
+  <th scope="col">{{form_row(form.estado, {'label': 'Estado:'})}}</th>
+  <th scope="col">{{form_row(form.fechaEntrega, {'label': 'Fecha de entrega:'})}}</th>
+</thead>
+
+</table>
+{{ form_end(form) }}
+</div>
+</body>
+{% endblock %}
