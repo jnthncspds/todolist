@@ -137,4 +137,49 @@ class DefaultController extends Controller
        'form' => $form->createView(),
      ));
     }
+
+    /**
+    * @Route("/porhacer/{id}", name="porhacer")
+    */
+
+    public function porhacerAction($id){
+
+      $todo= $this->getDoctrine()->getRepository('AppBundle:Todo')->find($id);
+      $todo->setEstado('Por hacer');
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($todo);
+      $em->flush();
+
+      return $this->redirectToRoute('homepage');
+    }
+
+    /**
+    * @Route("/haciendo/{id}", name="haciendo")
+    */
+
+    public function haciendoAction($id){
+
+      $todo= $this->getDoctrine()->getRepository('AppBundle:Todo')->find($id);
+      $todo->setEstado('Haciendo');
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($todo);
+      $em->flush();
+
+      return $this->redirectToRoute('homepage');
+    }
+
+    /**
+    * @Route("/hecho/{id}", name="hecho")
+    */
+
+    public function hechoAction($id){
+
+      $todo= $this->getDoctrine()->getRepository('AppBundle:Todo')->find($id);
+      $todo->setEstado('Hecho');
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($todo);
+      $em->flush();
+
+      return $this->redirectToRoute('homepage');
+    }
 }

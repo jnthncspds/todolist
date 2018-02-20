@@ -30,8 +30,8 @@
 
           </div>
         </div>
-          <a class="btn btn-lg btn-success" href="#" role="button">Por hacer&raquo;</a>
-          <a class="btn btn-lg btn-danger" href="#" role="button">Hecho&raquo;</a>
+          <a class="btn btn-lg btn-success" href="{{path('porhacer', {'id': t.id})}}" role="button">Por hacer&raquo;</a>
+          <a class="btn btn-lg btn-danger" href="{{path('hecho', {'id': t.id})}}" role="button">Hecho&raquo;</a>
         </div>
 
       {% endif %}
@@ -56,8 +56,8 @@
 
                   </div>
                 </div>
-                <a class="btn btn-lg btn-primary" href="#" role="button">Haciendo&raquo;</a>
-                <a class="btn btn-lg btn-danger" href="#" role="button">Hecho&raquo;</a>
+                <a class="btn btn-lg btn-primary" href="{{path('haciendo', {'id': t.id})}}" role="button">Haciendo&raquo;</a>
+                <a class="btn btn-lg btn-danger" href="{{path('hecho', {'id': t.id})}}" role="button">Hecho&raquo;</a>
               </div>
             {% endif %}
 
@@ -81,8 +81,8 @@
 
           </div>
         </div>
-                <a class="btn btn-lg btn-success" href="#" role="button">Por hacer&raquo;</a>
-                <a class="btn btn-lg btn-primary" href="#" role="button">Haciendo&raquo;</a>
+                <a class="btn btn-lg btn-success" href="{{path('porhacer', {'id': t.id})}}" role="button">Por hacer&raquo;</a>
+                <a class="btn btn-lg btn-primary" href="{{path('haciendo', {'id': t.id})}}" role="button">Haciendo&raquo;</a>
               </div>
             {% endif %}
 
